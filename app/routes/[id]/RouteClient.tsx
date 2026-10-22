@@ -10,18 +10,27 @@ const RouteMap = dynamic(() => import("@/components/Map").then((m) => m.RouteMap
 export function RouteClient({ route, places }: { route: Route; places: Place[] }) {
   const [active, setActive] = useState<Place | null>(places[0] ?? null);
 
+  function askGuide(place: Place) {
+    setActive(place);
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      window.requestAnimationFrame(() => {
+        document.getElementById("guide-chat")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }
+
   return (
     <div className="grid gap-6 lg:grid-cols-5">
       <div className="lg:col-span-3 space-y-4">
         <RouteMap places={places} />
         <div className="space-y-3">
           {places.map((p, i) => (
-            <PlaceCard key={p.id} place={p} index={i} onAsk={setActive} />
+            <PlaceCard key={p.id} place={p} index={i} onAsk={askGuide} />
           ))}
         </div>
       </div>
-      <div className="lg:col-span-2">
-        <div className="sticky top-[64px] space-y-4">
+      <div className="min-w-0 lg:col-span-2">
+        <div className="space-y-4 lg:sticky lg:top-[64px]">
           <div className="rounded-2xl border bg-card p-4">
             <h1 className="text-lg font-medium leading-tight">{route.title}</h1>
             <p className="mt-1 text-sm text-muted-foreground">{route.summary}</p>
