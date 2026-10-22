@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Polyline, Popup, useMap } from "react-leaflet";
+import { AttributionControl, MapContainer, TileLayer, Marker, Polyline, Popup, useMap } from "react-leaflet";
 import type { Place } from "@/lib/types";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -32,9 +32,11 @@ export function RouteMap({ places }: { places: Place[] }) {
 
   return (
     <div className="overflow-hidden rounded-2xl border">
-      <MapContainer center={center} zoom={14} style={{ height: 360, width: "100%" }} scrollWheelZoom={false}>
+      <MapContainer center={center} zoom={14} style={{ height: 360, width: "100%" }} scrollWheelZoom={false} attributionControl={false}>
+        {/* Keep the map-data attribution without Leaflet's optional branding prefix. */}
+        <AttributionControl position="bottomright" prefix={false} />
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Polyline positions={line} />
