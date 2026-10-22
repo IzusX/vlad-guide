@@ -5,7 +5,17 @@ import { PlaceCard } from "@/components/PlaceCard";
 import { Chat } from "@/components/Chat";
 import type { Place, Route } from "@/lib/types";
 
-const RouteMap = dynamic(() => import("@/components/Map").then((m) => m.RouteMap), { ssr: false });
+const RouteMap = dynamic(() => import("@/components/Map").then((m) => m.RouteMap), {
+  ssr: false,
+  loading: () => (
+    <div role="status" className="overflow-hidden rounded-2xl border">
+      <div
+        className="min-h-[180px] rounded-2xl bg-muted sm:min-h-[240px] md:min-h-[360px]"
+        style={{ height: 360, width: "100%" }}
+      />
+    </div>
+  ),
+});
 
 export function RouteClient({ route, places }: { route: Route; places: Place[] }) {
   const [active, setActive] = useState<Place | null>(places[0] ?? null);
