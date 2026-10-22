@@ -1,0 +1,51 @@
+[
+  {
+    "id": "historic-1h",
+    "title": "Исторический центр за 1 час",
+    "duration": "1h",
+    "summary": "Короткая прогулка от вокзала до Корабельной набережной — самое главное без спешки.",
+    "placeIds": ["railway-station", "central-square", "triumphal-arch", "korabelnaya", "submarine-s56"],
+    "tags": ["история", "первый раз"]
+  },
+  {
+    "id": "historic-2h",
+    "title": "Исторический центр за 2 часа",
+    "duration": "2h",
+    "summary": "Расширенный маршрут по Светланской: вокзал, ГУМ, музеи, арка и набережные.",
+    "placeIds": [
+      "railway-station",
+      "gum",
+      "svetlanskaya",
+      "arsenyev-museum",
+      "central-square",
+      "triumphal-arch",
+      "admiral-square",
+      "korabelnaya"
+    ],
+    "tags": ["история", "архитектура"]
+  },
+  {
+    "id": "views-2h",
+    "title": "Виды и море за 2 часа",
+    "duration": "2h",
+    "summary": "Фуникулёр, Орлиное гнездо и Спортивная набережная — панорамы города.",
+    "placeIds": ["funicular", "eagle-nest", "tiger-center", "millionka", "sportivnaya-nab"],
+    "tags": ["виды", "фото", "море"]
+  },
+  {
+    "id": "views-half-day",
+    "title": "Полдня: центр + море",
+    "duration": "4h",
+    "summary": "Центр, видовые площадки и выезд к Токаревскому маяку.",
+    "placeIds": [
+      "railway-station",
+      "svetlanskaya",
+      "central-square",
+      "funicular",
+      "eagle-nest",
+      "sportivnaya-nab",
+      "tokarevsky"
+    ],
+    "tags": ["маршрут на полдня"]
+  }
+]
